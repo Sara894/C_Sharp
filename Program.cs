@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace C_
+namespace CSharp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Собака Серая,\n F");
+            int a = 2;
+            Console.WriteLine(a);
         }
+
     }
 }
