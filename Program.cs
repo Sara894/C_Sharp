@@ -6,8 +6,11 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            int a;
+            int a = 3;
+            int b = 663;
             Console.WriteLine(a);
+            Console.WriteLine(b);
+            
         }
 
     }
