@@ -6,7 +6,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            int a = 2;
+            int a;
             Console.WriteLine(a);
         }
 
