@@ -1,0 +1,16 @@
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.exe
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.deps.json
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.runtimeconfig.json
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.runtimeconfig.dev.json
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.dll
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\ref\C_Sharp.dll
+D:\project\OSU\C#\C_Sharp\bin\Debug\net5.0\C_Sharp.pdb
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.csproj.AssemblyReference.cache
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.AssemblyInfoInputs.cache
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.AssemblyInfo.cs
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.csproj.CoreCompileInputs.cache
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.dll
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\ref\C_Sharp.dll
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.pdb
+D:\project\OSU\C#\C_Sharp\obj\Debug\net5.0\C_Sharp.genruntimeconfig.cache
