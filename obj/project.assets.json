@@ -8,26 +8,24 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\t4825\\.nuget\\packages\\": {}
+    "C:\\Users\\1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\t4825\\C#\\C#.csproj",
+      "projectUniqueName": "D:\\project\\OSU\\C#\\C_Sharp\\C#.csproj",
       "projectName": "C#",
-      "projectPath": "C:\\Users\\t4825\\C#\\C#.csproj",
-      "packagesPath": "C:\\Users\\t4825\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\t4825\\C#\\obj\\",
+      "projectPath": "D:\\project\\OSU\\C#\\C_Sharp\\C#.csproj",
+      "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
+      "outputPath": "D:\\project\\OSU\\C#\\C_Sharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\t4825\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
