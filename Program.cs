@@ -6,8 +6,7 @@ namespace C_Sharp
     {
        static void Main(string[] args)
        {
-         /*   Console.WriteLine("Введите число а: ");
-           double a = Convert.ToDouble(Console.ReadLine()); */
+           //double a = Convert.ToDouble(Console.ReadLine()); 
            double a = 10;
            var result = GetResult(a);
            Console.WriteLine(result);
