@@ -6,6 +6,14 @@ namespace Task2
     {
         static void Main(string[] args)
         {
+            Boolean numberIsReal = IsRealNumber(4,10,4);
+            if (numberIsReal)
+            {
+                Console.WriteLine("Have Real Num!");
+            }
+            else{
+                 Console.WriteLine("Don't have Real Num!");
+            }
 
         }
 
@@ -14,8 +22,8 @@ namespace Task2
         {
            double b2 = Math.Pow(b,2);
            double discriminant = b2 - 4*a*c;
-            Boolean numberIs = (discriminant >= 0) ? (true) : (false);
-            return numberIs;
+            Boolean numberIsReal = (discriminant >= 0) ? (true) : (false);
+            return numberIsReal;
 
         }
     }
