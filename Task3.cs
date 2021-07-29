@@ -14,10 +14,12 @@ namespace Task3
     {
         static void Main(string[] args)
         {
+            double r = GetB(10,28,5,12);
+            Console.WriteLine(r);
 
         }
 
-        static int GetB(double a, double R, double r, double S)
+        static double GetB(double a, double R, double r, double S)
         {
             //S = a*b*c/4R;
             double bc = (S*4*R)/a;
@@ -28,7 +30,8 @@ namespace Task3
             bc = q;
             b + c = -p; */
            double b = b_c + Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5);
-           double c = b_c + Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5);
+           double c = b_c - Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5);
+           return c;
             
 
         }
