@@ -17,6 +17,7 @@ namespace Task3
 int key1 = Console.Read();
 Console.WriteLine($"Код нажатой клавиши: {key1}");
 Console.WriteLine("Символьное представление: " + Convert.ToChar(key1));
+Console.ReadKey(true);
             GetSideFromA(5);
             GetLittleRadiusFromA(4);
         }
