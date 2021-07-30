@@ -13,13 +13,21 @@ namespace Task3
     class Program
     {
         static void Main(string[] args)
-        {Console.WriteLine("Нажмите любую клавишу, а затем Enter");
-int key1 = Console.Read();
-Console.WriteLine($"Код нажатой клавиши: {key1}");
-Console.WriteLine("Символьное представление: " + Convert.ToChar(key1));
-Console.ReadKey(true);
-            GetSideFromA(5);
+        {
+
+
+            int menu = int.Parse(Console.ReadLine());
+            switch(menu)
+            {
+                case 1:
+                  Console.WriteLine("HHHH");
+                   GetSideFromA(5);
+                  break;
+            }
+             Console.ReadKey(true);
+           
             GetLittleRadiusFromA(4);
+           
         }
         //Вычисление по одной стороне
         //сторона 
