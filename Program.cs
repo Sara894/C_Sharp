@@ -13,7 +13,10 @@ namespace Task3
     class Program
     {
         static void Main(string[] args)
-        {
+        {Console.WriteLine("Нажмите любую клавишу, а затем Enter");
+int key1 = Console.Read();
+Console.WriteLine($"Код нажатой клавиши: {key1}");
+Console.WriteLine("Символьное представление: " + Convert.ToChar(key1));
             GetSideFromA(5);
             GetLittleRadiusFromA(4);
         }
