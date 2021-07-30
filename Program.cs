@@ -14,6 +14,7 @@ namespace Task3
     {
         static void Main(string[] args)
         {
+            
             //пусть у нас треугольник со сторонами 3,4, 5
             //R = 2.5, r = 1, S = 6, a = 4, h = 3
            
