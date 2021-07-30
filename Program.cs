@@ -14,35 +14,32 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            
-            //пусть у нас треугольник со сторонами 3,4, 5
-            //R = 2.5, r = 1, S = 6, a = 4, h = 3
-           
-           double[] t = new double[2];
-             t = GetB(4,2.5,1,6);
-            Console.WriteLine(t[0]);
-            Console.WriteLine(t[1]);
-
+            GetSideFromA(5);
+            GetLittleRadiusFromA(4);
         }
 
-        static double[] GetB(double a, double R, double r, double S)
+        static void GetSideFromA(double a)
         {
-          
-              //S = a*b*c/4R;
-            double bc = (S*4*R)/a;
-            //S = P/2 * r
-            double P = ((S/r)*2);
-            double b_c = P - a;
-           /*  x^2 + px + q = 0
-            bc = q;
-            b + c = -p; */
-           double b = (b_c + Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5))/2;
-           double c = (b_c - Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5))/2;
-           double[] b_and_c = new double[2];
-           b_and_c[0] = b;
-           b_and_c[1] = c;
-           return b_and_c;
-
+            Console.WriteLine("Стороны треугольника равны: " + a);
         }
+         static void GetLittleRadiusFromA(double a)
+        {
+            Console.WriteLine("Радиус вписанной окружности: " + ((a*Math.Pow(3,0.5))/4));
+        }
+        
+        static void GetBigRadiusFromA(double a)
+        {
+            Console.WriteLine("Радиус описанной окружности: " + a);
+        }
+        
+        static void GetSquareFromA(double a)
+        {
+            Console.WriteLine("Площадь равностороннего треугольника: " + (a*a*Math.Pow(3,0.5))/4);
+        } 
+
+         static void GetHeightFromA(double a)
+        {
+            Console.WriteLine("Высота равностороннего треугольника: " + (a*Math.Pow(3,0.5))/2);
+        } 
     }
 }
