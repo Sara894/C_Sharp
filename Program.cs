@@ -15,13 +15,15 @@ namespace Task3
         static void Main(string[] args)
         {
 
-
+            Console.WriteLine("Выберите дейстивие \n 1 - найти сторону по стороне");
             int menu = int.Parse(Console.ReadLine());
             switch(menu)
             {
                 case 1:
+                Console.WriteLine("Введите сторону треугольника: ");
+                  double a = double.Parse(Console.ReadLine());
                   Console.WriteLine("HHHH");
-                   GetSideFromA(5);
+                  GetSideFromA(a);
                   break;
             }
              Console.ReadKey(true);
