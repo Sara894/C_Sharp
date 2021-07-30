@@ -17,12 +17,14 @@ namespace Task3
             //пусть у нас треугольник со сторонами 3,4, 5
             //R = 2.5, r = 1, S = 6, a = 4, h = 3
            
-            double t = GetB(4,2.5,1,6);
-            Console.WriteLine(t);
+           double[] t = new double[2];
+             t = GetB(4,2.5,1,6);
+            Console.WriteLine(t[0]);
+            Console.WriteLine(t[1]);
 
         }
 
-        static double GetB(double a, double R, double r, double S)
+        static double[] GetB(double a, double R, double r, double S)
         {
           
               //S = a*b*c/4R;
@@ -35,7 +37,10 @@ namespace Task3
             b + c = -p; */
            double b = (b_c + Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5))/2;
            double c = (b_c - Math.Pow(((b_c)*(b_c) - 4*(bc)),0.5))/2;
-           return b;
+           double[] b_and_c = new double[2];
+           b_and_c[0] = b;
+           b_and_c[1] = c;
+           return b_and_c;
 
         }
     }
