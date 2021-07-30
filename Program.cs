@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 /* 8. Пусть элементами равностороннего треугольника являются: 
 1) сторона а; 
 2) площадь S; 
@@ -14,8 +14,9 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            double r = GetB(10,28,5,12);
-            Console.WriteLine(r);
+           
+            double t = GetB(10,28,1,12);
+            Console.WriteLine(t);
 
         }
 
