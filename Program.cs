@@ -10,12 +10,14 @@ namespace Task4
           // double renta = 10000;
          //  int year = 10;
          int month = 0;
+         double costs = 0;
          while(month < 9)
          {
+             costs +=  GetGrowUpPrice(10000, month);
             Console.WriteLine( GetGrowUpPrice(10000, month));
              month++;
          }
-           double costs = GetGrowUpPrice(10000, 10); 
+           Console.WriteLine("Это столько");
            Console.WriteLine(costs);
            Console.ReadKey();
         }
