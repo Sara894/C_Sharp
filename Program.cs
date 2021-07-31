@@ -15,20 +15,46 @@ namespace Task3
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Выберите дейстивие \n 1 - найти сторону по стороне");
+           while(true)
+           {
+                Console.WriteLine("Выберите дейстивие \n 1 - найти сторону \n 2 - найти высоту \n 3 - найти площадь \n 4 - найти радиус вписанной \n 5 - найти радиус описанной");
             int menu = int.Parse(Console.ReadLine());
             switch(menu)
             {
                 case 1:
-                Console.WriteLine("Введите сторону треугольника: ");
+               {
+                    Console.WriteLine("Введите сторону треугольника: ");
                   double a = double.Parse(Console.ReadLine());
-                  Console.WriteLine("HHHH");
                   GetSideFromA(a);
                   break;
+               }
+                case 2:
+               {
+                    Console.WriteLine("Введите сторону треугольника: ");
+                  double a = double.Parse(Console.ReadLine());
+                 GetHeightFromA(a);
+                  break;
+               }
+
+               
+                case 4:
+               {
+                    Console.WriteLine("Введите сторону треугольника: ");
+                  double a = double.Parse(Console.ReadLine());
+                  GetLittleRadiusFromA(a);
+                  break;
+               }
+                case 5:
+               {
+                    Console.WriteLine("Введите сторону треугольника: ");
+                  double a = double.Parse(Console.ReadLine());
+                  GetBigRadiusFromA(a);
+                  break;
+               }
+               
             }
+           }
              Console.ReadKey(true);
-           
-            GetLittleRadiusFromA(4);
            
         }
         //Вычисление по одной стороне
