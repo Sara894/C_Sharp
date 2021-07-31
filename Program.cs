@@ -8,7 +8,7 @@ namespace Task4
     {
       static void Main(string[] args)
       {
-          double n = 2;
+          double n = 7;
           double t = 29;
           double e = Math.Abs(t);
           double an ;
@@ -21,6 +21,12 @@ namespace Task4
                   Console.WriteLine(i);
                   break;
               }
+              i++;
+          }
+          while(i<n)
+          {
+              an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
+              Console.WriteLine(an);
               i++;
           }
           Console.ReadKey();
