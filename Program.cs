@@ -8,21 +8,26 @@ namespace Task4
     {
       static void Main(string[] args)
       {
-          double n = 7;
-          double t = 29;
-          double e = Math.Abs(t);
+          Console.WriteLine("Введите число n");
+          double n = double.Parse(Console.ReadLine());
+        Console.WriteLine("Введите число e, десятичная часть через , ");
+          double e = Convert.ToDouble(Console.ReadLine());
           double an ;
           double i = 1;
           while(i<n)
           {
               an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
-              if (an < e)
+              if (Math.Abs(an) < e)
               {
+                  Console.WriteLine("Наименьший номер элемента последовательности, для которого выполняется условие М:");
                   Console.WriteLine(i);
+                   Console.WriteLine(an);
                   break;
               }
               i++;
           }
+          Console.WriteLine("Это все члены последовательности:");
+          i = 0;
           while(i<n)
           {
               an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
