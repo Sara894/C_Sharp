@@ -1,6 +1,5 @@
 ﻿using System;
-/* Найти наименьший номер элемента последовательности,
- для которого выполняется условие М. Вывести на экран этот номер и все элементы где i = 1, 2,..., n.
+/* Найти целые числа, которые при возведении в квадрат дают палиндромы, например 26^2= 676.
 */
 namespace Task1
 {
@@ -8,33 +7,29 @@ namespace Task1
     {
       static void Main(string[] args)
       {
-          Console.WriteLine("Введите число n");
-          double n = double.Parse(Console.ReadLine());
-        Console.WriteLine("Введите число e, десятичная часть через , ");
-          double e = Convert.ToDouble(Console.ReadLine());
-          double an ;
-          double i = 1;
-          while(i<n)
+          int n = int.Parse(Console.ReadLine());
+          int i = 10;
+          while (i<n)
           {
-              an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
-              if (Math.Abs(an) < e)
+            
+              bool s = IsPalindrome(i*i);
+              if (s)
               {
-                  Console.WriteLine("Наименьший номер элемента последовательности, для которого выполняется условие М:");
-                  Console.WriteLine(i);
-                   Console.WriteLine(an);
-                  break;
+                  Console.WriteLine("Палиндром дает -- "+i);
               }
               i++;
           }
-          Console.WriteLine("Это все члены последовательности:");
-          i = 0;
-          while(i<n)
-          {
-              an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
-              Console.WriteLine(an);
-              i++;
-          }
           Console.ReadKey();
+      }
+
+      static bool IsPalindrome(int square)
+      {
+         string str = square.ToString();
+         if (str[0] == str[2])
+         {
+             return true;
+         }
+         return false;
       }
       
     }
