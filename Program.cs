@@ -1,7 +1,7 @@
 ﻿using System;
 /* Найти целые числа, которые при возведении в квадрат дают палиндромы, например 26^2= 676.
 */
-namespace Task1
+namespace Task2
 {
     class Program
     {
