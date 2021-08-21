@@ -1,9 +1,12 @@
 ﻿using System;
-/* Дана целочисленная таблица А[n].
- Найти наименьшее число K элементов, которые можно выкинуть
-  из данной последовательности,
- так чтобы осталась  возрастающая подпоследовательность
- (от меньшего к большему).
+/*     8. Алгоритм фон Неймана. Упорядочить массив  по неубыванию 
+с помощью алгоритма сортировки слияниями:
+1) каждая пара соседних элементов сливается
+ в одну группу из двух элементов (последняя 
+ группа может состоять из одного элемента);
+2) каждая пара соседних двухэлементных групп 
+сливается в одну четырехэлементную группу и т.д.
+При каждом слиянии новая укрупненная группа упорядочивается.
 */
 namespace Task2
 {
@@ -12,34 +15,23 @@ namespace Task2
         static void Main(string[] args)
         {
             int[] arr = { 555, 999, 7, 3, 777 };
-           // Console.WriteLine("Исходный массив: ");
-
-            /*  foreach (int elem in arr)
-               {
-                  Console.Write("\t"+elem);
-               }
-                Console.WriteLine("_________________"); */
-
-
-            int sum = 0;
             for (int i = 0; i < arr.Length; i++)
             {
-                try
+                for (int j = i + 1; j < arr.Length; j++)
                 {
-                  if (arr[i] > arr[i + 1])
-                   {
-                      Console.WriteLine("Надо бы выкинуть элемент " + arr[i] + " под номером " + i);
-                   }
-            
-                }
-                catch(IndexOutOfRangeException)
-                {
-                  Console.WriteLine("IndexOutOfRangeException");
+                    if (arr[i] < arr[j])
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
                 }
             }
 
-
-            Console.WriteLine(sum);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
             Console.ReadKey();
 
         }
