@@ -55,12 +55,6 @@ class Program
             Merge(array, lowIndex, middleIndex, highIndex);
         }
         return array;
-        /*  while((lowIndex+2) < highIndex)
-         {
-             Merge(array, lowIndex, lowIndex+1,lowIndex+2);
-             lowIndex++;
-         }
-         return array; */
     }
 
     static int[] MergeSort(int[] array)
@@ -71,41 +65,37 @@ class Program
 
     static void Main(string[] args)
     {
-        /*   Console.WriteLine("Сортировка слиянием");
-          Console.Write("Введите элементы массива: ");
-          var s = Console.ReadLine().Split(new[] { " ", ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
-          var array = new int[s.Length];
-          for (int i = 0; i < s.Length; i++)
-          {
-              array[i] = Convert.ToInt32(s[i]);
-          }
-   */
-        int[] array = { 100, 33, 4, 55, 88, 7, 77 };
-         // array = Compare(array);
-          Console.WriteLine("Упорядоченный массив: {0}", string.Join(", ", Compare(array)));
+        int[] array = { 100, 33, 4, 55, 88, 7,77};
+        // 33, 100, 4, 55, 7, 77, 88
+        Console.WriteLine("Упорядоченный массив: {0}", string.Join(", ", Compare(array)));
 
-            Console.ReadKey();
-        for (int i = 0; i < 1; i++)
-        {
-           // int index = 2;
-         
-
-        }
-
-        /*     Console.WriteLine("Упорядоченный массив: {0}", string.Join(", ", MergeSort(array)));
-
-            Console.ReadKey(); */
+        Console.ReadKey();
     }
 
 
     static int[] Compare(int[] arr)
     {
-       // int index = 2;
-        if (arr[0] > arr[1])
+        // int index = 2;
+        for (int i = 0; i < arr.Length; i+=2)
         {
-            int temp = arr[0];
-            arr[0] = arr[1];
-            arr[1] = temp;
+            try
+            {
+                if (arr[i] > arr[i + 1])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                if (arr[i - 1] > arr[i])
+                {
+                    int temp = arr[i-1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                }
+            }
         }
         return arr;
     }
