@@ -65,8 +65,10 @@ class Program
 
     static void Main(string[] args)
     {
-        int[] array = { 100, 33, 4, 55, 88, 7,77};
-        // 33, 100, 4, 55, 7, 77, 88
+        int[] array = { 100, 33, 4, 55, 88, 7, 77, 99 };
+        // 33, 100, 4, 55, 7, 88, 77, 99
+        // 4, 33, 100, 55, 7, 88, 77, 99
+        // 4, 33, 55, 100, 7, 88, 77, 99
         Console.WriteLine("Упорядоченный массив: {0}", string.Join(", ", Compare(array)));
 
         Console.ReadKey();
@@ -75,8 +77,7 @@ class Program
 
     static int[] Compare(int[] arr)
     {
-        // int index = 2;
-        for (int i = 0; i < arr.Length; i+=2)
+        for (int i = 0; i < arr.Length; i += 2)
         {
             try
             {
@@ -86,12 +87,51 @@ class Program
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                 }
+
+
             }
             catch (IndexOutOfRangeException)
             {
                 if (arr[i - 1] > arr[i])
                 {
-                    int temp = arr[i-1];
+                    int temp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+
+
+
+        for (int i = 0; i < arr.Length; i += 4)
+        {
+            Console.WriteLine(i);
+            try
+            {
+                {
+                    if (arr[i] > arr[i + 2])
+                    {
+                        int temp = arr[i];
+                        int cook = arr[i + 1];
+                        arr[i] = arr[i + 2];
+                        arr[i + 1] = temp;
+                        arr[i + 2] = cook;
+                    }
+
+                    if (arr[i + 2] > arr[i + 3])
+                    {
+                        int temp = arr[i + 2];
+                        arr[i + 2] = arr[i + 3];
+                        arr[i + 3] = temp;
+
+                    }
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                if (arr[i - 1] > arr[i])
+                {
+                    int temp = arr[i - 1];
                     arr[i - 1] = arr[i];
                     arr[i] = temp;
                 }
