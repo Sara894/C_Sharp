@@ -69,6 +69,7 @@ class Program
         // 33, 100, 4, 55, 7, 88, 77, 99
         // 4, 33, 100, 55, 7, 88, 77, 99
         // 4, 33, 55, 100, 7, 88, 77, 99
+        // 33, 4, 100, 55, 7, 77, 88, 99
         Console.WriteLine("Упорядоченный массив: {0}", string.Join(", ", Compare(array)));
 
         Console.ReadKey();
@@ -87,7 +88,6 @@ class Program
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                 }
-
 
             }
             catch (IndexOutOfRangeException)
@@ -125,8 +125,16 @@ class Program
                         arr[i + 3] = temp;
 
                     }
+
+                    if (arr[i+1]>arr[i+2])
+                    {
+                        int temp = arr[i+1];
+                        arr[i+1] = arr[i+2];
+                        arr[i+2] = temp;
+                    }
+
                 }
-            }
+                }
             catch (IndexOutOfRangeException)
             {
                 if (arr[i - 1] > arr[i])
