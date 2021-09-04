@@ -18,9 +18,9 @@ namespace Study
                 return 1;
             }
 
-            if((n % 2) == 0)
+            if((n & 1) == 0)
             {
-                int power = Power(x, n/2);
+                int power = Power(x, n >> 1);
                 return power * power;
             }
             else
