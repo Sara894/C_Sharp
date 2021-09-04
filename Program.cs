@@ -11,22 +11,23 @@ namespace Study
              Console.ReadKey();
         }
 
-        static int Power(int x, int n)
+        static long Power(long x, int n)
         {
-            if (n == 0)
+            var result = 1L;
+            while(n>0)
             {
-                return 1;
+                if((n & 1) == 0)
+                {
+                    x*=x;
+                    n>>=1;
+                }
+                else
+                {
+                    result *=x;
+                    --n;
+                }
             }
-
-            if((n & 1) == 0)
-            {
-                int power = Power(x, n >> 1);
-                return power * power;
-            }
-            else
-            {
-                return x*Power(x, n-1);
-            }
+            return result;
         }
     }
 }
