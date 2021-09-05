@@ -6,45 +6,37 @@ namespace Study
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Power: ");
-             //вот почему не работал ввод с консоли
-             Console.ReadKey();
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            Console.WriteLine("Расстояние Левенштейна:  " + Lev(s1,s2));
+            //вот почему не работал ввод с консоли
+            Console.ReadKey();
         }
 
-        static int Minimum (int a, int b, int c) => (a = a < b ? a : b) < c ? a : c;
+        static int Minimum(int a, int b, int c) => (a = a < b ? a : b) < c ? a : c;
 
-        static int LevenshteinDistance(string firstWord, string secondWord)
+
+        static int Lev(string word1, int len1, string word2, int len2)
         {
-            var n = firstWord.Length() + 1;
-            var m = secondWord.Length() + 1;
-            var matrixLD = new int[n, m]; 
-            const int deletionCost = 1;
-            const int insertionCost = 1;
+            if (len1 == 0)
+                return len2;
+            if (len2 == 0)
+                return len1;
 
-            //создание матрицы для двух слов, первая строка
-            for (int i = 0; i < n; i++)
-            {
-                matrixLD[0, i] = i;
-            }
-            //первый столбец матрицы
-            for( int j = 0;j < m; j++)
-            {
-                matrixLD[j,0] = j;
-            }
+            var substitutionCost = 0;
+            if (word1[len1 - 1] != word2[len2 - 1])
+                substitutionCost = 1;
 
-            for (int i = 1; i < n; i++)
-            {
-                for(int j = 1; j < m; j++)
-                {
-                    var substitutionCost = firstWord[i-1] == secondWord[j-1] ? 0 : 1;
-                    matrixLD[i,j] = Minimum(matrixDL[i-1,j] + deletionCost,
-                                            matrixDL[i,j-1] + insertionCost,
-                                            matrixDL[i-1, j-1] + substitutionCost);
-                }
-            }
-            return matrixLD[n-1, m-1];
+            var deletion = Lev(word1, len1 - 1, word2, len2) + 1;
+            var insertion = Lev(word1, len1, word2, len2 - 1) + 1;
+            var substitution = Lev(word1, len1 - 1, word2, len2 - 1) + substitutionCost;
 
+            return Minimum(deletion, insertion, substitution);
         }
-       
+
+        static int Lev(string word1, string word2) =>
+         Lev(word1, word1.Length, word2, word2.Length);
+
+
     }
 }
