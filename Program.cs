@@ -15,6 +15,7 @@ namespace Task3
             int num = int.Parse(Console.ReadLine());
             int temp = num ;
             int reverseNum = 0;
+        //    for ( int i =0;i<100; i++) разбитьна функции булевкая опр палиндром или нет 
             while(num > 0)
             {
                 int digit = num % 10;
