@@ -1,9 +1,7 @@
 ﻿using System;
-/* Найти целые числа, которые при возведении в квадрат дают палиндромы, например 
-262 
-262 
- 
-= 676*/
+/* Дана целочисленная таблица А[n].
+ Найти наименьшее число K элементов, которые можно выкинуть из данной последовательности,
+  так чтобы осталась  возрастающая подпоследовательность.*/
 namespace Task3
 {
     class Program
@@ -11,33 +9,23 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите число: ");
-            int num = int.Parse(Console.ReadLine());
-            for ( int i =10;i<num; i++) //разбитьна функции булевкая опр палиндром или нет 
+            int[] arr = new int[10] {5,3,3,1,18,6,7,8,9,10};
+            int alast = arr[0];
+            int count = 0;
+            for(int i = 1; i< 10; i++ )
             {
-                if (IsPalindrome(i*i))
-                {
-                    Console.WriteLine(i + " Квадрат: "+ i*i);
-                }
+               if(arr[i]>alast)
+                   alast = arr[i];
+               else
+                   count++;
+
             }
+
+            Console.WriteLine(count);
+
             Console.ReadKey();
         }
 
-        static bool IsPalindrome(int num)
-        {
-            int temp = num ;
-            int reverseNum = 0;
-              while(num > 0)
-            {
-                int digit = num % 10;
-                reverseNum = reverseNum * 10 + digit;
-                num /=10;
-            }
-
-            if (temp == reverseNum)
-               return true;
-            else
-               return false;
-        }
+    
     }
     }
