@@ -18,22 +18,45 @@ namespace Task3
         static void Main(string[] args)
         {
             int[] A = new int[16];
+            A = Enter(A);
+
+            int[] B = SortNeiman(A);
+            Show(B);
+            Console.ReadKey();
+        }
+
+
+        static void Show(int[] nums)
+        {
+            // вывод
+            Console.WriteLine();
+            Console.WriteLine("Вывод отсортированного массива");
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.Write(nums[i] + " ");
+            }
+        }
+
+        static int[] Enter(int[] A)
+        {
             Random rnd = new Random();
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < A.Length; i++)
             {
                 A[i] = rnd.Next(0, 100);
                 Console.Write(A[i] + " ");
             }
-             Console.WriteLine();
-            Console.WriteLine("---------");
+            return A;
+        }
 
-            int[] B = new int[16];
+        static int[] SortNeiman(int[] A)
+        {
+            int[] B = new int[A.Length];
             int index = 2;
             while (index != A.Length*2)
             {
                 int[] temp = new int[index];
                 index--;
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < A.Length; i++)
                 {
                     if (i % index == 0 && i!=0)
                     {
@@ -52,33 +75,7 @@ namespace Task3
                 index++;
                 index *= 2;
             }
-           Show(B);
-            Console.ReadKey();
-        }
-
-
-        static void Show(int[] nums)
-        {
-           /*  int temp;
-            for (int i = 0; i < nums.Length - 1; i++)
-            {
-                for (int j = i + 1; j < nums.Length; j++)
-                {
-                    if (nums[i] > nums[j])
-                    {
-                        temp = nums[i];
-                        nums[i] = nums[j];
-                        nums[j] = temp;
-                    }
-                }
-            } */
-
-            // вывод
-            Console.WriteLine("Вывод отсортированного массива");
-            for (int i = 0; i < nums.Length; i++)
-            {
-                Console.Write(nums[i] + " ");
-            }
+            return B;
         }
 
     
