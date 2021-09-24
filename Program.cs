@@ -13,22 +13,31 @@ namespace Task3
         {
             Console.WriteLine("Введите число: ");
             int num = int.Parse(Console.ReadLine());
+            for ( int i =10;i<num; i++) //разбитьна функции булевкая опр палиндром или нет 
+            {
+                if (IsPalindrome(i*i))
+                {
+                    Console.WriteLine(i + " Квадрат: "+ i*i);
+                }
+            }
+            Console.ReadKey();
+        }
+
+        static bool IsPalindrome(int num)
+        {
             int temp = num ;
             int reverseNum = 0;
-        //    for ( int i =0;i<100; i++) разбитьна функции булевкая опр палиндром или нет 
-            while(num > 0)
+              while(num > 0)
             {
                 int digit = num % 10;
                 reverseNum = reverseNum * 10 + digit;
                 num /=10;
             }
-            Console.WriteLine("Перевернутое число: " + reverseNum);
 
             if (temp == reverseNum)
-               Console.WriteLine("Это палиндром");
+               return true;
             else
-               Console.WriteLine("Не палиндром");
-            Console.ReadKey();
+               return false;
         }
 
     }
