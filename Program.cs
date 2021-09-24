@@ -9,10 +9,31 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            int[] arr = new int[10] {5,3,3,1,18,6,7,8,9,10};
-            int alast = arr[0];
+            int[] arr = GetArray(20);
+
+
+            Console.WriteLine(GetCount(arr));
+
+            Console.ReadKey();
+        }
+
+        static int[] GetArray(int n)
+        {
+            int[] arr = new int[n];
+            Random rand = new Random();
+            for (int y = 0; y < 20; y++)
+            {
+                arr[y] = rand.Next(-91, 90);
+            }
+
+            return arr;
+        }
+
+        static int GetCount(int[] arr)
+        {
+             int alast = arr[0];
             int count = 0;
-            for(int i = 1; i< 10; i++ )
+            for(int i = 1; i< arr.Length; i++ )
             {
                if(arr[i]>alast)
                    alast = arr[i];
@@ -20,10 +41,7 @@ namespace Task3
                    count++;
 
             }
-
-            Console.WriteLine(count);
-
-            Console.ReadKey();
+            return count;
         }
 
     
