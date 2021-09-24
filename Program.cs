@@ -17,15 +17,49 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            int[] arr = { 1, 5, 6, 7, 8 };
+            int[] A = new int[16];
+            Random rnd = new Random();
+            for (int i = 0; i < 16; i++)
+            {
+                A[i] = rnd.Next(0, 100);
+                Console.Write(A[i] + " ");
+            }
+             Console.WriteLine();
+            Console.WriteLine("---------");
 
+            int[] B = new int[16];
+            int index = 2;
+            while (index != A.Length*2)
+            {
+                int[] temp = new int[index];
+                index--;
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i % index == 0 && i!=0)
+                    {
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            temp[j] = A[i - j];
+                        }
+                        Array.Sort(temp);
+                        Array.Reverse(temp);
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            B[i - j] = temp[j];
+                        }
+                    }
+                }
+                index++;
+                index *= 2;
+            }
+           Show(B);
             Console.ReadKey();
         }
 
 
-        static void Sort(int[] nums)
+        static void Show(int[] nums)
         {
-            int temp;
+           /*  int temp;
             for (int i = 0; i < nums.Length - 1; i++)
             {
                 for (int j = i + 1; j < nums.Length; j++)
@@ -37,44 +71,16 @@ namespace Task3
                         nums[j] = temp;
                     }
                 }
-            }
+            } */
 
             // вывод
-           /*  Console.WriteLine("Вывод отсортированного массива");
+            Console.WriteLine("Вывод отсортированного массива");
             for (int i = 0; i < nums.Length; i++)
             {
-                Console.WriteLine(nums[i]);
-            } */
-        }
-        static int[] Merge(int[] a, int[] b)
-        {
-                int[] c = new int[a.Length + b.Length];
-                for (int i = 0; i < a.Length; i++)
-                    c[i] = a[i];
-                for (int j = 0; j < b.Length; j++)
-                    c[a.Length + j] = b[j];
-                return c;
-        }
-
-        static int[] SortByNeiman(int[] arr)
-        {
-            int count = arr.Length / 2;
-            int plusIndex = 2;
-            int i = 0;
-            while( i<arr.Length)
-            {
-                int[] newArr = new int[plusIndex];
-                for(int j  = 0; j< plusIndex; j++)
-                {
-                    newArr[j] = arr[i];
-                }
-                Sort(newArr);
-                i+=plusIndex;
+                Console.Write(nums[i] + " ");
             }
-
-
-            return arr;
         }
+
     
     }
     }
