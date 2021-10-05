@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OSU\\C#\\ProgrammicLanguages.csproj",
+      "projectUniqueName": "D:\\OSU\\C_S\\ProgrammicLanguages.csproj",
       "projectName": "ProgrammicLanguages",
-      "projectPath": "D:\\OSU\\C#\\ProgrammicLanguages.csproj",
+      "projectPath": "D:\\OSU\\C_S\\ProgrammicLanguages.csproj",
       "packagesPath": "C:\\Users\\t4825\\.nuget\\packages\\",
-      "outputPath": "D:\\OSU\\C#\\obj\\",
+      "outputPath": "D:\\OSU\\C_S\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\t4825\\AppData\\Roaming\\NuGet\\NuGet.Config"

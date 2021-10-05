@@ -24,3 +24,16 @@ D:\OSU\C#\obj\Debug\netcoreapp3.1\ProgrammicLanguages.csproj.CoreCompileInputs.c
 D:\OSU\C#\obj\Debug\netcoreapp3.1\ProgrammicLanguages.dll
 D:\OSU\C#\obj\Debug\netcoreapp3.1\ProgrammicLanguages.pdb
 D:\OSU\C#\obj\Debug\netcoreapp3.1\ProgrammicLanguages.genruntimeconfig.cache
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.csprojAssemblyReference.cache
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.AssemblyInfoInputs.cache
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.AssemblyInfo.cs
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.csproj.CoreCompileInputs.cache
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.dll
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.pdb
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.exe
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.deps.json
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.runtimeconfig.json
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.runtimeconfig.dev.json
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.dll
+D:\OSU\C_S\bin\Debug\netcoreapp3.1\ProgrammicLanguages.pdb
+D:\OSU\C_S\obj\Debug\netcoreapp3.1\ProgrammicLanguages.genruntimeconfig.cache
