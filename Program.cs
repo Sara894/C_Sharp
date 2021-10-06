@@ -12,9 +12,6 @@ namespace Task3
         {
             int[] arr = {7,2,3,4,1,99};
             int a= GetLengthLongestSubsequence(arr);
-
-        
-               Console.WriteLine(a);
         
             Console.ReadKey();
         }
@@ -25,30 +22,41 @@ namespace Task3
         {
             if(nums.Length == 1)
               return 1;
+            
+            int[] sub = new int[nums.Length];
 
-            int[] lengthOfSubsequense = new int[nums.Length];
-
-           for(int j = 1; j < nums.Length; j++)
-           {
-               for (int k = 0; k < j; k++)
+            for(int i = 0; i < (nums.Length-1); i++)
+            {
+               try
                {
-                   if (nums[j] > nums[k])
-                   {
-                       if(lengthOfSubsequense[j] <= lengthOfSubsequense[k])
-                       {
-                           lengthOfSubsequense[j] = lengthOfSubsequense[k]+1;
-                       }
-                   }
+                     if(nums[i] < nums[i+1] )
+                {
+                    sub[i] = nums[i];
+                    sub[i+1]=nums[i+1];
+
+                }
+                else
+                {
+                   if(nums[i]<nums[i+2])
+                     {
+                         sub[i+1] =  nums[i+2];
+                         i++;
+                     }
+                     
+                }
                }
-           }
+               catch (IndexOutOfRangeException)
+               {
+                   
+                   Console.WriteLine("JJJJ");
+               }
+            }
 
-           int maximum = 0;
-
-           foreach(int length in lengthOfSubsequense )
-           {
-               maximum = Math.Max(maximum,length);
-           }
-           return maximum;
+            foreach (int val in sub)
+            {
+                Console.Write(val+" ");
+            }
+            return 2;
         }
     }
 }
