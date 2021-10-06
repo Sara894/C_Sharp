@@ -10,8 +10,11 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            int[] arr = {2,3,4,1,99};
+            int[] arr = {7,2,3,4,1,99};
             int a= GetLengthLongestSubsequence(arr);
+
+        
+               Console.WriteLine(a);
         
             Console.ReadKey();
         }
@@ -22,28 +25,44 @@ namespace Task3
         {
             if(nums.Length == 1)
               return 1;
-            
+
+            int[] lengthOfSubsequense = new int[nums.Length];
             int[] sub = new int[nums.Length];
-            int k = 0;
+            int i =0 ;
 
-            for(int i = 1; i < (nums.Length-1); i++)
-            {
-               for(int j = 0; j < i; j++)
+           for(int j = 1; j < nums.Length; j++)
+           {
+               for (int k = 0; k < j; k++)
                {
-                   if(nums[j] < nums[i])
+                   if (nums[j] > nums[k])
                    {
-                       sub[k] = nums[i];
-                       k++;
+                       sub[i] = nums[j];
+                       if(lengthOfSubsequense[j] <= lengthOfSubsequense[k])
+                       {
+                           lengthOfSubsequense[j] = lengthOfSubsequense[k]+1;
+                       }
                    }
-                   
                }
-            }
+               i++;
+           }
 
-             foreach (int val in sub)
-            {
-                Console.Write(val+" ");
-            } 
-            return 2;
+           int maximum = 0;
+
+           foreach(int length in lengthOfSubsequense )
+           {
+               maximum = Math.Max(maximum,length);
+           }
+
+           foreach(int num in sub)
+           {
+               Console.Write(num + " ");
+           }
+           return maximum;
         }
     }
 }
+/* TODO
+план такой
+находим наибольшую возрастающую последовательность с этим алгоритмом
+потом берем его последний элемент и добавляем кнему оставшиеся в кр=онце начального массива числа
+и так вытаскиваем все */
