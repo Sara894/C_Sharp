@@ -10,7 +10,7 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            int[] arr = {7,2,3,4,1,99};
+            int[] arr = {7,2,3,100,500,4,1,99};
             int a= GetLengthLongestSubsequence(arr);
         
             Console.ReadKey();
@@ -43,7 +43,7 @@ namespace Task3
                        {
                            max = nums[i];
                            sub[i] = max;
-                           nums[i+1] = 0;
+                           nums[i+1] = max;
                        }
 
                 }
