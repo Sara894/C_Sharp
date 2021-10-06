@@ -10,7 +10,7 @@ namespace Task3
     
         static void Main(string[] args)
         {
-            int[] arr = {7,2,3,100,500,4,1,99};
+            int[] arr = {7,2,3,100,500,4,1,99,9000};
             int a= GetLengthLongestSubsequence(arr);
         
             Console.ReadKey();
@@ -24,26 +24,28 @@ namespace Task3
               return 1;
             
             int[] sub = new int[nums.Length];
-             int max = nums[0]+1;
-           // int maxIndex = 0; 
+             int max = nums[0];
+            int maxIndex = 0; 
             int i = 0;
 
             while(i < (nums.Length))
             {
                 try
                 {
-                     if(nums[i]<nums[i+1] )
+                     if(nums[i]<nums[i+1] && ((i == maxIndex + 1 ) || nums[i]>=max))
                 {
                     sub[i] = nums[i];
                     max = nums[i+1];
+                    maxIndex = i+1;
                 }
                 else
                 {
-                    if(nums[i]>=max && nums[i]>nums[i+1])
+                    if(nums[i]>=max && nums[i]>nums[i+1] && i != 0)
                        {
                            max = nums[i];
                            sub[i] = max;
-                           nums[i+1] = max;
+                           maxIndex = i;
+                         //  nums[i+1] = max;
                        }
 
                 }
@@ -51,7 +53,7 @@ namespace Task3
                 catch (IndexOutOfRangeException)
                 {
                     
-                    if(nums[i-1]<nums[i])
+                    if(nums[i-1]<nums[i] && ( nums[i]> max))
                     {
                         sub[i] = nums[i];
                     }
