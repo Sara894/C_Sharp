@@ -24,38 +24,39 @@ namespace Task3
               return 1;
             
             int[] sub = new int[nums.Length];
-            int max = 0;
-            int maxIndex = 0;
+             int max = nums[0]+1;
+           // int maxIndex = 0; 
+            int i = 0;
 
-            for(int i = 0; i < (nums.Length-1); i++)
+            while(i < (nums.Length))
             {
-               try
-               {
-                     if(nums[i] < nums[i+1] )
+                try
+                {
+                     if(nums[i]<nums[i+1] )
                 {
                     sub[i] = nums[i];
-                    sub[i+1]=nums[i+1];
                     max = nums[i+1];
-                    maxIndex = i+1;
-
                 }
                 else
                 {
-                    for  (int y = maxIndex; y<nums.Length; y++)
+                    if(nums[i]>=max && nums[i]>nums[i+1])
+                       {
+                           max = nums[i];
+                           sub[i] = max;
+                           nums[i+1] = 0;
+                       }
+
+                }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    
+                    if(nums[i-1]<nums[i])
                     {
-                        if(max<nums[y])
-                        {
-                            max = nums[y];
-                            sub[i] = nums[y];
-                        }
+                        sub[i] = nums[i];
                     }
                 }
-               }
-               catch (IndexOutOfRangeException)
-               {
-                   
-                   Console.WriteLine("JJJJ");
-               }
+                 i++;
             }
 
             foreach (int val in sub)
