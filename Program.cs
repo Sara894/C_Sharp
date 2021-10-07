@@ -2,7 +2,9 @@
 /* Дана целочисленная таблица А[n]. Найти наименьшее число K элементов, 
 которые можно выкинуть из данной последовательности, так чтобы осталась  возрастающая подпоследовательность.  
 Это все равно что найти длину наибольшей возрастающей подпоследовательности и отнять ее из длины массива
-Нет, не все равно. См код ниже*/
+Нет, не все равно. 
+Это все равно что найти длину самой большой возрастающей подпоследовательности, полученной
+зачеркиванием цифр слева направо по массиву и отнять ее длину из общей длины массива*/
 namespace Task3
 {
     class Program
@@ -12,6 +14,7 @@ namespace Task3
         {
             int[] arr = {100,7777,1,4325,32534,3,4,5,6,7,8,9,10};
             int a= GetLengthLongestSubsequence(arr);
+            Console.WriteLine("Наименьшее число K элементов, которые можно выкинуть из данной последовательности, так чтобы осталась  возрастающая подпоследовательность: " + a);
         
             Console.ReadKey();
         }
@@ -46,14 +49,13 @@ namespace Task3
                 }
                 catch(IndexOutOfRangeException)
                 {
-                    Console.WriteLine("Возникло исключение IndexOutOfRangeException");
                 }
             }
 
-            foreach (var item in sub)
+            /* foreach (var item in sub)
             {
                 Console.WriteLine(item + " ");
-            }
+            } */
 
             int lenSubsequence = 0;
             int BiggestSubLen = 0;
@@ -63,19 +65,17 @@ namespace Task3
                 if(arr[i]<arr[i+1])
                 {
                     lenSubsequence++;
-                    Console.WriteLine(arr[i]+"<"+arr[i+1]);
                 }
                 else 
                 {
                     BiggestSubLen =( lenSubsequence+1 > BiggestSubLen) ? (lenSubsequence+1) : (BiggestSubLen) ;
                     lenSubsequence = 0;
-                    Console.WriteLine("BiggestSubLen: "+BiggestSubLen);
                 }
                 BiggestSubLen =( lenSubsequence+1 > BiggestSubLen) ? (lenSubsequence+1) : (BiggestSubLen) ;
             }
-            Console.WriteLine("Biggest: " +  BiggestSubLen);
 
-            return  BiggestSubLen;
+            return arr.Length - BiggestSubLen;
         }
+        //получилось найти длину самой большой возрастающей подпоследовательности, полученной зачеркиванием ненужных цифр
     }
 }
