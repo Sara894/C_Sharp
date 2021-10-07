@@ -48,8 +48,6 @@ namespace Task3
                 {
                     Console.WriteLine("Возникло исключение IndexOutOfRangeException");
                 }
-               
-              
             }
 
             foreach (var item in sub)
@@ -57,7 +55,27 @@ namespace Task3
                 Console.WriteLine(item + " ");
             }
 
-            return 2;
+            int lenSubsequence = 0;
+            int BiggestSubLen = 0;
+
+            for(int i = 0; i < sub.Length-1; i++)
+            {
+                if(arr[i]<arr[i+1])
+                {
+                    lenSubsequence++;
+                    Console.WriteLine(arr[i]+"<"+arr[i+1]);
+                }
+                else 
+                {
+                    BiggestSubLen =( lenSubsequence+1 > BiggestSubLen) ? (lenSubsequence+1) : (BiggestSubLen) ;
+                    lenSubsequence = 0;
+                    Console.WriteLine("BiggestSubLen: "+BiggestSubLen);
+                }
+                BiggestSubLen =( lenSubsequence+1 > BiggestSubLen) ? (lenSubsequence+1) : (BiggestSubLen) ;
+            }
+            Console.WriteLine("Biggest: " +  BiggestSubLen);
+
+            return  BiggestSubLen;
         }
     }
 }
