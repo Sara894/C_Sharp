@@ -18,53 +18,47 @@ namespace Task3
 
 
 
-        static int GetLengthLongestSubsequence(int[] nums)
+        static int GetLengthLongestSubsequence(int[] arr)
         {
-            if(nums.Length == 1)
+            if(arr.Length == 1)
               return 1;
             
-            int[] sub = new int[nums.Length];
-             int max = nums[0];
-            int maxIndex = 0; 
-            int i = 0;
-
-            while(i < (nums.Length))
+            int[] sub = new int[arr.Length];
+            int t = 0;
+            int max = arr[0];
+            
+            for(int i = 0; i < arr.Length; i++)
             {
-                try
+              
+                try{
+                         if(arr[i]<arr[i+1] )
                 {
-                     if(nums[i]<nums[i+1] && ((i == maxIndex + 1 ) || nums[i]>=max))
-                {
-                    sub[i] = nums[i];
-                    max = nums[i+1];
-                    maxIndex = i+1;
+                    sub[t] = arr[i];
+                    sub[t+1] = arr[i+1];
+                    max = arr[i+1] - 1;
+                    Console.WriteLine(max + "--Max");
+                    t++;
                 }
-                else
+                else if(arr[i] > max)
                 {
-                    if(nums[i]>=max && nums[i]>nums[i+1] && i != 0)
-                       {
-                           max = nums[i];
-                           sub[i] = max;
-                           maxIndex = i;
-                         //  nums[i+1] = max;
-                       }
-
+                    Console.WriteLine(arr[i] + "--ttttt");
+                     sub[t] = arr[i];
+                      t++;
                 }
                 }
-                catch (IndexOutOfRangeException)
+                catch(IndexOutOfRangeException)
                 {
-                    
-                    if(nums[i-1]<nums[i] && ( nums[i]> max))
-                    {
-                        sub[i] = nums[i];
-                    }
+                    Console.WriteLine("Возникло исключение IndexOutOfRangeException");
                 }
-                 i++;
+               
+              
             }
 
-            foreach (int val in sub)
+            foreach (var item in sub)
             {
-                Console.Write(val+" ");
+                Console.WriteLine(item + " ");
             }
+
             return 2;
         }
     }
