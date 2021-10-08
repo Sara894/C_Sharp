@@ -1,0 +1,13 @@
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.exe
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.deps.json
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.runtimeconfig.json
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.runtimeconfig.dev.json
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.dll
+D:\OSU\sharp\bin\Debug\netcoreapp3.1\sharp.pdb
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.csprojAssemblyReference.cache
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.AssemblyInfoInputs.cache
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.AssemblyInfo.cs
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.csproj.CoreCompileInputs.cache
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.dll
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.pdb
+D:\OSU\sharp\obj\Debug\netcoreapp3.1\sharp.genruntimeconfig.cache
