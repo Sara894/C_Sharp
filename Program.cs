@@ -6,9 +6,9 @@ namespace sharp
     {
         static void Main(string[] args)
         {
-            int[] ar1 = new int[] {33,4,45,56};
+            int[] ar1 = new int[] {400,3300,45,56};
             int[] ar2 = new int[] {1,2,67,66};
-            int[] newArr = Merge(ar1,ar2);
+            int[] newArr = Sorting(ar1);
             foreach(int val in newArr)
             {
                 Console.WriteLine(val+" ");
@@ -33,22 +33,23 @@ namespace sharp
             return arr;   
         }
 
-         static int[] Merge1(int[] arr)
+         static int[] Sorting(int[] arr)
         {
             
-            for(int i = 0; i < arr.Length-1; i+=2)
+            int[] fr = new int[4];
+            for(int i = 0; i< 2 ; i++)
             {
-                for(int j = i; j < i+1; j++)
+                if(arr[i]>arr[i+2])
                 {
-                    if(arr[j]>arr[j+1])
-                    {
-                        int temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                    }
+                    fr[i] = arr[i+2];
+                    fr[i+2] = arr[i];
                 }
-            }
-            return arr;   
+                else{
+ fr[i] = arr[i];
+                    fr[i+2] = arr[i+2];
+                }
+            } 
+            return fr;   
         }
 
     }
