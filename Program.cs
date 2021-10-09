@@ -6,7 +6,7 @@ namespace sharp
     {
         static void Main(string[] args)
         {
-            int[] ar1 = new int[] {33,4,45,56};
+            int[] ar1 = new int[] {33,4,450,56};
             int[] ar2 = new int[] {1,2,67,66};
             int[] newArr = Sorting(ar1);
             foreach(int val in newArr)
@@ -37,6 +37,7 @@ namespace sharp
         {
             
             int[] fr = new int[2];
+            int[] fr1 = new int[2];
             for(int i = 0; i< 2 ; i++)
             {
                 if(arr[i]>arr[i+1])
@@ -45,7 +46,17 @@ namespace sharp
                     fr[i+1] = arr[i];
                 }
             } 
-            return fr;   
+            int j = 0;
+            for(int i = 2; i< 3 ; i++)
+            {
+                if(arr[i]>arr[i+1])
+                {
+                    fr1[j] = arr[i+1];
+                    fr1[j+1] = arr[i];
+                    j++;
+                }
+            } 
+            return Merge(fr, fr1);   
         }
 
     }
