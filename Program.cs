@@ -7,7 +7,6 @@ namespace sharp
         static void Main(string[] args)
         {
             int[] ar1 = new int[] {33,4,450,56};
-            int[] ar2 = new int[] {1,2,67,66};
             int[] newArr = Sorting(ar1);
             foreach(int val in newArr)
             {
@@ -35,10 +34,10 @@ namespace sharp
 
          static int[] Sorting(int[] arr)
         {
+            int[] fr = new int[2];
+                int[] fr1 = new int[2];
             for(int i = 0; i < (arr.Length/2 ); i++)
             {
-                int[] fr = new int[2];
-                int[] fr1 = new int[2];
                 for(int j = 0; j < 2; j++)
                 {
                      if(arr[j]>arr[j+1])
@@ -57,9 +56,8 @@ namespace sharp
                     t++;
                 }
                 }
-                return Merge(fr, fr1); 
             }
-            return arr;   
+             return Merge(fr, fr1);    
         }
 
     }
