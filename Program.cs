@@ -1,64 +1,54 @@
 ﻿using System;
-
-namespace sharp
+/* Дано n вещественных чисел (n=100). Упорядочить их по неубыванию методом фон Неймана: 
+завести два массива A и B и записать исходные числа в А; упорядочить пары соседних чисел
+ (A1 и А2, А 3 и А 4 и т.д.) и записать их В; взять из В по две соседние упорядоченные пары и,
+  слив их в упорядоченные четверки, снова записать в А; 
+затем каждые две соседние четверки из В слить в упорядоченные восьмерки и перенести в А и т.д */
+class Program
 {
-    class Program
-    {
-        static void Main(string[] args)
+
+    static void Main(string[] args)
         {
-            int[] ar1 = new int[] {33,4,450,56};
-            int[] newArr = Sorting(ar1);
-            foreach(int val in newArr)
+            int[] A = new int[8]{2,1,5,4,6,3,7,2};
+           /*  Random rnd = new Random();
+            for (int i = 0; i < 8; i++)
             {
-                Console.WriteLine(val+" ");
+                A[i] = rnd.Next(0, 1000);
+                Console.Write(A[i] + " ");
+            } */
+            Console.WriteLine();
+            Console.WriteLine("==================================================");
+            Console.WriteLine("                 После сортировки");
+            Console.WriteLine("==================================================");
+            int[] B = new int[8];
+            int index = 2;
+            while (index != A.Length*2)
+            {
+                int[] temp = new int[index];
+                index--;
+                for (int i = 0; i < 8; i++)
+                {
+                    if (i % index == 0 && i!=0)
+                    {
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            temp[j] = A[i - j];
+                        }
+                        Array.Sort(temp);
+                        Array.Reverse(temp);
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            B[i - j] = temp[j];
+                        }
+                    }
+                }
+                index++;
+                index *= 2;
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                Console.Write(B[i] + " ");
             }
             Console.ReadKey();
         }
-
-        static int[] Merge(int[] ar1, int[] ar2)
-        {
-            int[] arr = new int[(ar1.Length*2)];
-                for(int j = 0; j < ar1.Length; j++)
-                {
-                    arr[j] = ar1[j];
-                }
-                int k = 0;
-                for(int i = ar1.Length; i < arr.Length; i++)
-                {
-                    arr[i] = ar2[k];
-                    k++;
-                }
-
-            return arr;   
-        }
-
-         static int[] Sorting(int[] arr)
-        {
-            int[] fr = new int[2];
-                int[] fr1 = new int[2];
-            for(int i = 0; i < (arr.Length/2 ); i++)
-            {
-                for(int j = 0; j < 2; j++)
-                {
-                     if(arr[j]>arr[j+1])
-                {
-                    fr[j] = arr[j+1];
-                    fr[j+1] = arr[j];
-                }
-                }
-                int t = 0;
-                for(int k = 2; k< 3; k++)
-                {
-                      if(arr[k]>arr[k+1])
-                {
-                    fr1[t] = arr[k+1];
-                    fr1[t+1] = arr[k];
-                    t++;
-                }
-                }
-            }
-             return Merge(fr, fr1);    
-        }
-
-    }
 }
