@@ -9,46 +9,27 @@ class Program
 
     static void Main(string[] args)
         {
-            int[] A = new int[8]{2,1,5,4,6,3,7,2};
-           /*  Random rnd = new Random();
-            for (int i = 0; i < 8; i++)
+            int[] arr = new int[9]{2,1,5,4,6,3,7,2,10};
+            int middle = arr.Length/2;
+            int[] A = new int[middle];
+            for(int i = 0; i < A.Length; i++)
             {
-                A[i] = rnd.Next(0, 1000);
-                Console.Write(A[i] + " ");
-            } */
-            Console.WriteLine();
-            Console.WriteLine("==================================================");
-            Console.WriteLine("                 После сортировки");
-            Console.WriteLine("==================================================");
-            int[] B = new int[8];
-            int index = 2;
-            while (index != A.Length*2)
-            {
-                int[] temp = new int[index];
-                index--;
-                for (int i = 0; i < 8; i++)
-                {
-                    if (i % index == 0 && i!=0)
-                    {
-                        for (int j = 0; j < temp.Length; j++)
-                        {
-                            temp[j] = A[i - j];
-                        }
-                        Array.Sort(temp);
-                        Array.Reverse(temp);
-                        for (int j = 0; j < temp.Length; j++)
-                        {
-                            B[i - j] = temp[j];
-                        }
-                    }
-                }
-                index++;
-                index *= 2;
+                A[i] = arr[i];
             }
-            for (int i = 0; i < 8; i++)
+            for(int i = 0; i < A.Length; i++)
             {
-                Console.Write(B[i] + " ");
+               Console.WriteLine(A[i]);
             }
+            int[] B = new int[arr.Length - middle];
+            for(int i = 0; i < middle+1; i++)
+            {
+                B[i] = arr[i+middle];
+            }
+            for(int i = 0; i < B.Length; i++)
+            {
+               Console.WriteLine(B[i]);
+            }
+          //  Console.WriteLine(middle);
             Console.ReadKey();
         }
 }
