@@ -18,18 +18,27 @@ class Program
             }
             for(int i = 0; i < A.Length; i++)
             {
-               Console.WriteLine(A[i]);
+                for(int j = 0; j < 2; j++)
+                {
+                    int[] tempArr = new int[2];
+                    if(A[i]>A[i+1])
+                    {
+                        int temp = A[i];
+                        tempArr[j] = A[i+1];
+                        tempArr[j+1] = temp;
+                    }
+                }
             }
             int[] B = new int[arr.Length - middle];
             for(int i = 0; i < middle+1; i++)
             {
                 B[i] = arr[i+middle];
             }
-            for(int i = 0; i < B.Length; i++)
-            {
-               Console.WriteLine(B[i]);
-            }
-          //  Console.WriteLine(middle);
             Console.ReadKey();
+        }
+
+        static int[] Neiman()
+        {
+
         }
 }
