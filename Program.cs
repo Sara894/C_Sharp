@@ -3,70 +3,101 @@
 завести два массива A и B и записать исходные числа в А; упорядочить пары соседних чисел
  (A1 и А2, А 3 и А 4 и т.д.) и записать их В; взять из В по две соседние упорядоченные пары и,
   слив их в упорядоченные четверки, снова записать в А; 
-затем каждые две соседние четверки из В слить в упорядоченные восьмерки и перенести в А и т.д */
+затем каждые две соседние четверки из В слить в упорядоченные восьмерки и перенести в А и т.д 
+
+
+Алгоритм фон Неймана. Упорядочить массив 
+a1, a2, …, an  
+по неубыванию с помощью алгоритма сортировки слияниями: 
+
+1) каждая пара соседних элементов сливается в одну группу из двух элементов (последняя группа может состоять из одного элемента); 
+
+2) каждая пара соседних двухэлементных групп сливается в одну четырехэлементную группу и т.д. 
+
+При каждом слиянии новая укрупненная группа упорядочивается. */
 class Program
 {
 
     static void Main(string[] args)
+    {
+        Console.WriteLine("Введите размерость массива: ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        int[] A = FillArray(n);
+        Console.WriteLine();
+        Console.WriteLine("==================================================");
+        Console.WriteLine("                 После сортировки");
+        Console.WriteLine("==================================================");
+        int[] B = SortByNeiman(A);
+        ShowArray(B);
+        Console.ReadKey();
+    }
+
+
+    static int[] FillArray(int n)
+    {
+        int pow = 1;
+        if (n != Math.Pow(2, pow))
         {
-            Console.WriteLine("Введите размерость массива: ");
-            int n = Convert.ToInt32(Console.ReadLine());
-             int pow = 1;
-            if(n != Math.Pow(2,pow))
-               while(n! > Math.Pow(2,pow))
-               {
-                   pow++;
-               }
-                Console.WriteLine("Степень : " + pow);
-            int[] A = new int[Convert.ToInt32(Math.Pow(2,pow))] ;
-            for(int i = 0; i < n ; i ++)
+            while (n! > Math.Pow(2, pow))
             {
-                A[i] = Convert.ToInt32(Console.ReadLine());
+                pow++;
             }
-            for(int i = 0; i < A.Length ; i ++)
-            {
-                 Console.Write(A[i]+ " ");
-            }
-           /*  int[] A = new int[8]{2,1,5,4,6,3,7,2};
-             Random rnd = new Random();
-            for (int i = 0; i < 8; i++)
-            {
-                A[i] = rnd.Next(0, 1000);
-                Console.Write(A[i] + " ");
-            }  */
-            Console.WriteLine();
-            Console.WriteLine("==================================================");
-            Console.WriteLine("                 После сортировки");
-            Console.WriteLine("==================================================");
-            int[] B = new int[A.Length];
-            int index = 2;
-            while (index != A.Length*2)
-            {
-                int[] temp = new int[index];
-                index--;
-                for (int i = 0; i < A.Length; i++)
-                {
-                    if (i % index == 0 && i!=0)
-                    {
-                        for (int j = 0; j < temp.Length; j++)
-                        {
-                            temp[j] = A[i - j];
-                        }
-                        Array.Sort(temp);
-                        Array.Reverse(temp);
-                        for (int j = 0; j < temp.Length; j++)
-                        {
-                            B[i - j] = temp[j];
-                        }
-                    }
-                }
-                index++;
-                index *= 2;
-            }
+        }
+        int[] A = new int[Convert.ToInt32(Math.Pow(2, pow))];
+        Console.WriteLine("Введите элементы массива: ");
+        for (int i = 0; i < n; i++)
+        {
+            A[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return A;
+    }
+
+    static int[] SortByNeiman(int[] A)
+    {
+        int[] B = new int[A.Length];
+        int index = 2;
+        while (index != A.Length * 2)
+        {
+            int[] temp = new int[index];
+            index--;
             for (int i = 0; i < A.Length; i++)
             {
-                Console.Write(B[i] + " ");
-            } 
-            Console.ReadKey();
+                if (i % index == 0 && i != 0)
+                {
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        temp[j] = A[i - j];
+                    }
+                    Array.Sort(temp);
+                    Array.Reverse(temp);
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        B[i - j] = temp[j];
+                    }
+                }
+            }
+            index++;
+            index *= 2;
         }
+        return B;
+    }
+
+    static void ShowArray(int[] A)
+    {
+        for (int i = 0; i < A.Length; i++)
+        {
+            Console.Write(A[i] + " ");
+        }
+    }
+
+    static int[] FillArrayRandom(int[] A)
+    {
+        Random rnd = new Random();
+        for (int i = 0; i < A.Length; i++)
+        {
+            A[i] = rnd.Next(0, 1000);
+            Console.Write(A[i] + " ");
+        }
+        return A;
+    }
 }
