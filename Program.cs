@@ -9,36 +9,64 @@ class Program
 
     static void Main(string[] args)
         {
-            int[] arr = new int[9]{2,1,5,4,6,3,7,2,10};
-            int middle = arr.Length/2;
-            int[] A = new int[middle];
-            for(int i = 0; i < A.Length; i++)
+            Console.WriteLine("Введите размерость массива: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+             int pow = 1;
+            if(n != Math.Pow(2,pow))
+               while(n! > Math.Pow(2,pow))
+               {
+                   pow++;
+               }
+                Console.WriteLine("Степень : " + pow);
+            int[] A = new int[Convert.ToInt32(Math.Pow(2,pow))] ;
+            for(int i = 0; i < n ; i ++)
             {
-                A[i] = arr[i];
+                A[i] = Convert.ToInt32(Console.ReadLine());
             }
-            for(int i = 0; i < A.Length; i++)
+            for(int i = 0; i < A.Length ; i ++)
             {
-                for(int j = 0; j < 2; j++)
+                 Console.Write(A[i]+ " ");
+            }
+           /*  int[] A = new int[8]{2,1,5,4,6,3,7,2};
+             Random rnd = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                A[i] = rnd.Next(0, 1000);
+                Console.Write(A[i] + " ");
+            }  */
+            Console.WriteLine();
+            Console.WriteLine("==================================================");
+            Console.WriteLine("                 После сортировки");
+            Console.WriteLine("==================================================");
+            int[] B = new int[A.Length];
+            int index = 2;
+            while (index != A.Length*2)
+            {
+                int[] temp = new int[index];
+                index--;
+                for (int i = 0; i < A.Length; i++)
                 {
-                    int[] tempArr = new int[2];
-                    if(A[i]>A[i+1])
+                    if (i % index == 0 && i!=0)
                     {
-                        int temp = A[i];
-                        tempArr[j] = A[i+1];
-                        tempArr[j+1] = temp;
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            temp[j] = A[i - j];
+                        }
+                        Array.Sort(temp);
+                        Array.Reverse(temp);
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            B[i - j] = temp[j];
+                        }
                     }
                 }
+                index++;
+                index *= 2;
             }
-            int[] B = new int[arr.Length - middle];
-            for(int i = 0; i < middle+1; i++)
+            for (int i = 0; i < A.Length; i++)
             {
-                B[i] = arr[i+middle];
-            }
+                Console.Write(B[i] + " ");
+            } 
             Console.ReadKey();
-        }
-
-        static int[] Neiman()
-        {
-
         }
 }
