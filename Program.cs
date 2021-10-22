@@ -1,43 +1,83 @@
 ﻿using System;
-/* 1. Найти наименьший номер элемента последовательности,
- для которого выполняется условие М. Вывести на экран этот номер и все элементы где i = 1, 2,..., n.
-*/
-namespace Task1
+/* Алгоритм фон Неймана. Упорядочить массив 
+ a1, a2, …, an 
+ a1, a2, …, an 
+ 
+ по неубыванию с помощью алгоритма сортировки слияниями: 
+
+1) каждая пара соседних элементов сливается в одну группу из двух элементов (последняя группа может состоять из одного элемента); 
+
+2) каждая пара соседних двухэлементных групп сливается в одну четырехэлементную группу и т.д. 
+
+При каждом слиянии новая укрупненная группа упорядочивается. */
+namespace Task3
 {
     class Program
     {
-      static void Main(string[] args)
-      {
-          Console.WriteLine("Введите число n");
-          double n = double.Parse(Console.ReadLine());
-        Console.WriteLine("Введите число e, десятичная часть через , ");
-          double e = Convert.ToDouble(Console.ReadLine());
-          double an ;
-          double number = 0;
-          double i = 1;
-          while(i<n)
-          {
-              an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
-              if (Math.Abs(an) < e)
-              {
-                  Console.WriteLine("Наименьший номер элемента последовательности, для которого выполняется условие М:");
-                  Console.WriteLine(i);
-                  number = i;
-                   Console.WriteLine(an);
-                  break;
-              }
-              i++;
-          }
-          Console.WriteLine("Это все члены последовательности:"+number+"штук");
-          i = 1;
-          while(i<=number)
-          {   
-              an = (Math.Pow(-1,i)*i)/Math.Pow(2,i);
-              Console.WriteLine(an);
-              i++;
-          }
-          Console.ReadKey();
-      }
-      
+    
+        static void Main(string[] args)
+        {
+            int[] A = new int[16];
+            A = Enter(A);
+
+            int[] B = SortNeiman(A);
+            Show(B);
+            Console.ReadKey();
+        }
+
+
+        static void Show(int[] nums)
+        {
+            // вывод
+            Console.WriteLine();
+            Console.WriteLine("Вывод отсортированного массива");
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.Write(nums[i] + " ");
+            }
+        }
+
+        static int[] Enter(int[] A)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < A.Length; i++)
+            {
+                A[i] = rnd.Next(0, 100);
+                Console.Write(A[i] + " ");
+            }
+            return A;
+        }
+
+        static int[] SortNeiman(int[] A)
+        {
+            int[] B = new int[A.Length];
+            int index = 2;
+            while (index != A.Length*2)
+            {
+                int[] temp = new int[index];
+                index--;
+                for (int i = 0; i < A.Length; i++)
+                {
+                    if (i % index == 0 && i!=0)
+                    {
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            temp[j] = A[i - j];
+                        }
+                        Array.Sort(temp);
+                        Array.Reverse(temp);
+                        for (int j = 0; j < temp.Length; j++)
+                        {
+                            B[i - j] = temp[j];
+                        }
+                    }
+                }
+                index++;
+                index *= 2;
+            }
+            return B;
+        }
+
+    
     }
-}
+    }
