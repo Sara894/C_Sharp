@@ -11,36 +11,37 @@ namespace Task3
         {
             Console.WriteLine("Введите число n: ");
             int n = Convert.ToInt16(Console.ReadLine());
-             int[] arr = new int[n];
-             arr = getDefaultArray(n);
-             int SUM = getSUM(arr);
+            int[] arr = new int[n];
+            arr = getDefaultArray(n);
+            int SUM = getSUM(arr);
             int[,] m = getMatrix(n);
-            showMatrix(m,n);
-           
-            int num = getNum(arr,m,n,SUM);
-            Console.WriteLine("Количество строк: "+num);
+            showMatrix(m, n);
+
+            int num = getNum(arr, m, n, SUM);
+            Console.WriteLine("Количество строк: " + num);
             Console.ReadKey();
         }
 
 
-        static int getNum(int[] arr, int[,] m, int n,int SUM)
+        static int getNum(int[] arr, int[,] m, int n, int SUM)
         {
-          int num = 0;
-          int sum = 0;
+            int num = 0;
+            int sum = 0;
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if(Array.Exists(arr,element => element == m[i,j]))
+                    if (Array.Exists(arr, element => element == m[i, j]))
                     {
-                      sum +=m[i,j];
-                      if(j ==(n-1) && sum ==SUM)
-                      {
-                        num++;
-                      }
+                        sum += m[i, j];
+                        if (j == (n - 1) && sum == SUM)
+                        {
+                            num++;
+                        }
                     }
-                    else{
-                      j = n+1 ;
+                    else
+                    {
+                        j = n + 1;
                     }
                 }
                 sum = 0;
@@ -49,21 +50,21 @@ namespace Task3
         }
         static int[] getDefaultArray(int n)
         {
-           int[] arr = new int[n];
-            for(int i = 0; i<n; i++)
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++)
             {
-              arr[i] = i+1;
+                arr[i] = i + 1;
             }
             return arr;
         }
 
         static int getSUM(int[] arr)
         {
-          int SUM = 0;
-            foreach(int val in arr)
+            int SUM = 0;
+            foreach (int val in arr)
             {
-              SUM+=val;
-              Console.Write(val + " ");
+                SUM += val;
+                Console.Write(val + " ");
             }
             Console.WriteLine(" ");
             return SUM;
@@ -71,29 +72,29 @@ namespace Task3
 
         static int[,] getMatrix(int n)
         {
-          int[,] m = new int[n,n];
+            int[,] m = new int[n, n];
             Random rand = new Random();
-            for(int i  = 0; i < n ; i ++)
+            for (int i = 0; i < n; i++)
             {
-              for(int j  = 0; j < n ; j ++)
-              {
-               // m[i,j] = rand.Next(1,n);
-               Console.WriteLine("Заполните матрицу: ");
-               m[i,j] = Convert.ToInt16(Console.ReadLine());
-              }
+                for (int j = 0; j < n; j++)
+                {
+                    // m[i,j] = rand.Next(1,n);
+                    Console.WriteLine("Заполните матрицу: ");
+                    m[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
             }
             return m;
         }
 
         static void showMatrix(int[,] m, int n)
         {
-           for(int i  = 0; i < n ; i ++)
+            for (int i = 0; i < n; i++)
             {
-              for(int j  = 0; j < n ; j ++)
-              {
-                Console.Write(m[i,j] + " ");
-              }
-              Console.WriteLine(" ");
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(m[i, j] + " ");
+                }
+                Console.WriteLine(" ");
             }
         }
     }
